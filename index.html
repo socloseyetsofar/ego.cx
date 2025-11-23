@@ -3,49 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Service Temporarily Down</title>
+  <title>Professional Web Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: black;
-      color: white;
-      font-family: monospace, monospace;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0D0D0D;
+      color: #EAEAEA;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      width: 100%;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      margin-top: 50px;
+    }
+
+    .hero img {
+      width: 85%;      /* slightly smaller */
+      max-width: 1200px;
+      border-radius: 10px;
+      /* Removed shadow */
+    }
+
+    /* Info Section */
+    .container {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 0 20px;
       text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .container.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    p {
-      font-size: 1rem;
-      color: #ccc;
-      margin-bottom: 2rem;
+    .container h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #FFFFFF;
     }
 
-    .footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.75rem;
-      color: #666;
+    .container p {
+      font-size: 1.25rem;
+      margin-bottom: 25px;
+      color: #CCCCCC;
+    }
+
+    .section {
+      margin-top: 50px;
+    }
+
+    .contact {
+      margin-top: 40px;
+      font-size: 1.1rem;
+      color: #AAAAAA;
+    }
+
+    .contact a {
+      color: #FFFFFF;
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 100px;
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+      padding-bottom: 50px;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h1>Service Temporarily Down</h1>
-    <p>We’re performing maintenance to bring you a better experience.<br>
-    Please check back soon.</p>
+
+  <div class="hero">
+    <img src="imageszz.png" alt="Our Work">
   </div>
 
-  <div class="footer">
-    © 2025 Ego Solutions (R)
+  <div class="container">
+    <h1>Professional Web Design Services</h1>
+    
+    <div class="section">
+      <p>We create <strong>custom, free designs</strong> for companies, tailored to their brand identity and goals.</p>
+      <p>Our designs are modern, professional, and optimized to impress clients and visitors alike.</p>
+    </div>
+
+    <div class="section">
+      <p>If you like the design, you can receive the <strong>full code</strong> and we can also <strong>host your website</strong> securely for you.</p>
+      <p>Our mission is to deliver a polished, efficient, and visually striking online presence for your business without high costs.</p>
+    </div>
+
+    <div class="section contact">
+      <p>Email: <a href="mailto:contact@yourcompany.com">contact@yourcompany.com</a></p>
+      <p>Phone: +44 0000000</p>
+    </div>
   </div>
+
+  <footer>
+    &copy; 2025 Your Company Name. All rights reserved.
+  </footer>
+
+  <script>
+    // Scroll-triggered animation
+    const container = document.querySelector('.container');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(container);
+  </script>
+
 </body>
 </html>
